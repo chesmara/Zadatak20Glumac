@@ -45,8 +45,8 @@ public class Filmovi {
 
     @Override
     public String toString() {
-        return "Filmovi{" +
-                "nazivFilma='" + nazivFilma + '\'' +
+        return "Film:{" +
+                " '" + nazivFilma + '\'' +
                 '}';
     }
 }
