@@ -38,7 +38,8 @@
     <RatingBar
         android:id="@+id/rb_ocena"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:numStars="5"/>
 
 
     <!-- Spinners provide a quick way to select one value from a set. -->

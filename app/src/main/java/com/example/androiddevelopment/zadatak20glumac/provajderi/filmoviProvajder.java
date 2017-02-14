@@ -12,12 +12,9 @@ import java.util.List;
 
 public class filmoviProvajder {
 
-    public static List<String> getFilmoviNaziv(Glumac glumac){
+    public static List<String> getFilmoviNaziv(){
 
-        List<String> nazivi=new ArrayList<>();
-          for(Filmovi filmovi:glumac.getFilmovi()
-                )  { nazivi.add(filmovi.getNazivFilma());
-        }
+      List<String> nazivi = new ArrayList<>();
 
         return nazivi;
     }

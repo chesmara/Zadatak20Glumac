@@ -43,5 +43,10 @@ public class Filmovi {
         this.glumac = glumac;
     }
 
-
+    @Override
+    public String toString() {
+        return "Filmovi{" +
+                "nazivFilma='" + nazivFilma + '\'' +
+                '}';
+    }
 }

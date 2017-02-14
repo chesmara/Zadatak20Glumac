@@ -7,17 +7,21 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.androiddevelopment.zadatak20glumac.R;
+import com.example.androiddevelopment.zadatak20glumac.model.Filmovi;
+import com.example.androiddevelopment.zadatak20glumac.provajderi.filmoviProvajder;
 import com.example.androiddevelopment.zadatak20glumac.provajderi.glumacProvajder;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,7 +39,7 @@ public class SecondActivity extends Activity {
 
         setContentView(R.layout.second_activity);
 
-        /
+
         final int position = getIntent().getIntExtra("position", 0);
 
         // Finds "ivImage" ImageView and sets "imageDrawable" property
@@ -58,9 +62,17 @@ public class SecondActivity extends Activity {
         tvDescription.setText(glumacProvajder.getGlumacById(position).getBiografija());
 
         TextView tvDatum = (TextView) findViewById(R.id.tv_datum);
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        String reportDate=df.format()
-        tvDescription.setText(report);
+        DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
+        String reportDate=df.format(glumacProvajder.getGlumacById(position).getDatumRodjenja());
+        tvDatum.setText(reportDate);
+
+        final ArrayList<Filmovi> filmoviNames= glumacProvajder.getGlumacById(position).getFilmovi();
+
+
+        ArrayAdapter<Filmovi> dataAdapter = new ArrayAdapter<Filmovi>(this, R.layout.list_item, filmoviNames );
+        ListView listaFilmova = (ListView) findViewById(R.id.lv_filmovi);
+
+        listaFilmova.setAdapter(dataAdapter);
 
         // Finds "rbRating" RatingBar and sets "rating" property
         RatingBar rbRating = (RatingBar) findViewById(R.id.rb_ocena);
