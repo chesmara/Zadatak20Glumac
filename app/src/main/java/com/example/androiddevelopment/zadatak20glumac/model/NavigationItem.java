@@ -8,7 +8,8 @@ public class NavigationItem implements Parcelable {
     private String title;
     private String subtitle;
     private int icon;
- 
+
+
     public NavigationItem(String title, String subtitle, int icon) {
         this.title = title;
         this.subtitle = subtitle;
