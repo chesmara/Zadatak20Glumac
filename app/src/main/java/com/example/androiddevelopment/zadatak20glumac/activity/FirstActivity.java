@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.androiddevelopment.zadatak20glumac.R;
 import com.example.androiddevelopment.zadatak20glumac.adapters.DrawerAdapter;
 import com.example.androiddevelopment.zadatak20glumac.dialogs.AboutDialog;
+import com.example.androiddevelopment.zadatak20glumac.dialogs.KontaktGialog;
 import com.example.androiddevelopment.zadatak20glumac.model.NavigationItem;
 import com.example.androiddevelopment.zadatak20glumac.provajderi.glumacProvajder;
 
@@ -44,7 +45,7 @@ public class FirstActivity extends AppCompatActivity {
     private ArrayList<NavigationItem> drawerItems = new ArrayList<NavigationItem>();
 
     private AlertDialog dialog;
-
+    private AlertDialog kdialog;
     private int itemId = 0;
 
 
@@ -59,6 +60,9 @@ public class FirstActivity extends AppCompatActivity {
         drawerItems.add(new NavigationItem(getString(R.string.drawer_home), getString(R.string.drawer_home_long), R.drawable.ic_action_product));
         drawerItems.add(new NavigationItem(getString(R.string.drawer_settings), getString(R.string.drawer_settings_long), R.drawable.ic_action_settings));
         drawerItems.add(new NavigationItem(getString(R.string.drawer_about), getString(R.string.drawer_about_long), R.drawable.ic_action_about));
+        drawerItems.add(new NavigationItem("Kontakt", "Podaci o udruženju", R.drawable.ic_action_contact));
+        drawerItems.add(new NavigationItem("O autoru", "Ko je tvorac svega spomenutog",R.drawable.ic_action_autor ));
+
 
         drawerTitle = getTitle();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -191,14 +195,27 @@ public class FirstActivity extends AppCompatActivity {
         } else if (position == 2) {
             if (dialog == null){
                 dialog = new AboutDialog(FirstActivity.this).prepareDialog();
-            } else {
+                }
+            else {
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
             }
-
             dialog.show();
         }
+
+        else if (position == 3) {
+            if (kdialog == null){
+                kdialog = new KontaktGialog(FirstActivity.this).prepareDialog();
+            }
+            else {
+                if (kdialog.isShowing()) {
+                    kdialog.dismiss();
+                }
+            }
+            kdialog.show();
+        }
+
 
         drawerList.setItemChecked(position, true);
         setTitle(drawerItems.get(position).getTitle());

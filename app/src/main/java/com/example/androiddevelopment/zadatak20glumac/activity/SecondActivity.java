@@ -76,6 +76,8 @@ public class SecondActivity extends AppCompatActivity {
         drawerItems.add(new NavigationItem(getString(R.string.drawer_home), getString(R.string.drawer_home_long), R.drawable.ic_action_product));
         drawerItems.add(new NavigationItem(getString(R.string.drawer_settings), getString(R.string.drawer_settings_long), R.drawable.ic_action_settings));
         drawerItems.add(new NavigationItem(getString(R.string.drawer_about), getString(R.string.drawer_about_long), R.drawable.ic_action_about));
+        drawerItems.add(new NavigationItem("Kontakt", "Podaci o udruženju", R.drawable.ic_action_contact));
+        drawerItems.add(new NavigationItem("O autoru", "Ko je tvorac svega spomenutog",R.drawable.ic_action_autor ));
 
         drawerTitle = getTitle();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
